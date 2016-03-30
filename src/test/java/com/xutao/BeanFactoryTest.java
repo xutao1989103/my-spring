@@ -16,6 +16,11 @@ public class BeanFactoryTest {
         BeanDefinition beanDefinition = new BeanDefinition();
         //inject bean
         beanDefinition.setBeanClassName("com.xutao.HelloWorldService");
+        //set property
+        PropertValues propertValues = new PropertValues();
+        propertValues.addPropertyValue(new PropertyValue("text","Hello world!!"));
+        beanDefinition.setPropertValues(propertValues);
+        //generate bean
         beanFactory.registerBeanDefinition("helloWorldService", beanDefinition);
         //get bean
         HelloWorldService service = (HelloWorldService) beanFactory.getBean("helloWorldService");
